@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcatt-deployment
+  labels:
+    app: tomcatt
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcatt
+  template:
+    metadata:
+      labels:
+        app: tomcatt
+    spec:
+      containers:
+        - name: tomcatt
+          image: liveorlike/tomcatweb:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  labels:
+    app: tomcatt
+spec:
+  selector:
+    app: tomcatt
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+
+status:
+  loadBalancer: {}
+
+
+
