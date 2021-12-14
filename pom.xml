@@ -27,7 +27,7 @@
   </dependencies>
 
   <build>
-    <finalName>MyMaven</finalName>
+    <finalName>milestone</finalName>
 
 
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
