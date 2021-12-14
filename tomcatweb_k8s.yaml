@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tomcatt-deployment
+  name: milestone-deployment
   labels:
-    app: tomcatt
+    app: milestone
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: tomcatt
+      app: milestone
   template:
     metadata:
       labels:
-        app: tomcatt
+        app: milestone
     spec:
       containers:
-        - name: tomcatt
-          image: liveorlike/tomcatweb:v1
+        - name: milestone
+          image: liveorlike/milestone-tomcat:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -26,13 +26,13 @@ kind: Service
 metadata:
   name: my-service
   labels:
-    app: tomcatt
+    app: milestone
 spec:
   selector:
-    app: tomcatt
+    app: milestone
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: 8080
   type: LoadBalancer
 

@@ -1,2 +1,2 @@
 FROM tomcat:latest
-ADD ./target/MyMaven.war /usr/local/tomcat/webapps/
+ADD ./target/milestone.war /usr/local/tomcat/webapps/

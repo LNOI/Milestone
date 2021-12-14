@@ -9,8 +9,8 @@ pipeline {
             steps {
             script{
                  try{
-                       sh "docker image rm -f tomcatweb:v1"
-                       sh "docker image rm -f liveorlike/tomcatweb:v1"
+                       sh "docker image rm -f milestone-tomcat:v1"
+                       sh "docker image rm -f liveorlike/milestone-tomcat:v1"
                  }catch(error)
                  {
                       echo "No"
@@ -47,7 +47,7 @@ pipeline {
                                      }
                                       stage('Push file tomcat server') {
                                                  steps {
-                                                    sh 'sudo  cp target/MyMaven.war /opt/tomcat/webapps/'
+                                                    sh 'sudo  cp target/milestone.war /opt/tomcat/webapps/'
                                                  }
                                       }
                                  }
@@ -62,7 +62,7 @@ pipeline {
                                  parallel{
                                      stage('Build') {
                                                  steps {
-                                                     sh 'docker build -t tomcatweb:v1 -f Dockerfile . '
+                                                     sh 'docker build -t milestone-tomcat:v1 -f Dockerfile . '
                                                  }
                                      }
                                       stage('Login') {
@@ -76,8 +76,8 @@ pipeline {
          }
           stage('Push') {
                                                           steps {
-                                                             sh 'docker tag tomcatweb:v1 liveorlike/tomcatweb:v1'
-                                                             sh 'docker push liveorlike/tomcatweb:v1'
+                                                             sh 'docker tag milestone-tomcat:v1 liveorlike/milestone-tomcat:v1'
+                                                             sh 'docker push liveorlike/milestone-tomcat:v1'
                                                           }
           }
 

@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>uit.webapp</groupId>
-  <artifactId>MyMaven</artifactId>
+  <artifactId>milestone</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
