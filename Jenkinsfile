@@ -13,14 +13,12 @@ pipeline {
                        sh "docker image rm -f liveorlike/milestone-tomcat:v1"
                  }catch(error)
                  {
-                      echo "No"
+                      echo "No problems"
                  }
                  }
-
             }
         }
-
-         stage('Code Security'){
+        stage('Code Security'){
                         parallel{
                             stage('OWASP Dependency-Check Vulnerabilities'){
                                 steps{
@@ -55,7 +53,7 @@ pipeline {
          stage('DAST OWASP ZAP '){
                      steps{
                          sh 'echo "Check OWASP ZAP"'
-//                          sh 'sudo docker run --rm -u root:root -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://10.0.3.132:8081/MyMaven/ -g gen.cof  -r report.html'
+//                          sh 'sudo docker run --rm -u root:root -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://10.0.3.132:8081/milestone/ -g gen.cof  -r report.html'
                      }
          }
          stage('Docker'){
@@ -70,7 +68,6 @@ pipeline {
                                                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                                                  }
                                       }
-
 
                                  }
          }
