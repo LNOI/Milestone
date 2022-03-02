@@ -18,18 +18,22 @@ pipeline{
                 }
             }
         }
+
         stage("Test static code"){
-            steps{
-                script{
-                    echo "pull code "
+            parallel{
+                stage("1"){
+                    steps{
+                        sh 'echo "1"'
+                    }
                 }
-               
+                stage("2"){
+                    steps{
+                        sh 'echo "2"'
+                    }
+                }
             }
-            // steps{
-            //     script{
-            //         echo "scan code"
-            //     }
-            // }
+           
+        
         }
         stage("Deploy"){
             steps{
