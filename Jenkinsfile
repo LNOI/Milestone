@@ -27,12 +27,7 @@ pipeline{
                     }
                 }
                 stage("2"){
-                    steps{
-                        sh 'echo "2"'
-                    }
-                }
-            }
-            parallel{
+                    parallel{
                 stage("1"){
                     steps{
                         sh 'echo "1"'
@@ -44,6 +39,9 @@ pipeline{
                     }
                 }
             }
+                }
+            }
+            
            
         
         }
