@@ -10,7 +10,7 @@ pipeline{
                     echo "Script begin for pipline"
                 }
             }
-        }
+        }   
         stage("Init2"){
             steps{
                 script{
@@ -25,11 +25,11 @@ pipeline{
                 }
                
             }
-            steps{
-                script{
-                    echo "scan code"
-                }
-            }
+            // steps{
+            //     script{
+            //         echo "scan code"
+            //     }
+            // }
         }
         stage("Deploy"){
             steps{
