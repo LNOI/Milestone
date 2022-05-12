@@ -1,2 +1,3 @@
 <h1 align="center"> DEVSECOPS (CI/CD) </h1>
-![alt](./model.png)
+
+<img src="model.png" alt="model devsecops milestone"  />
